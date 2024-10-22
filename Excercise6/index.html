@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .output p {
+            margin: 5px 0;
+        }
+    </style
+</head>
+<body>
+
+    <h1>JavaScript ES6 Code</h1>
+
+    <div class="output" id="output"></div>
+
+    <script>
+        const outputDiv = document.getElementById('output');
+
+        // Function to append result to the output div
+        const appendOutput = (text) => {
+            const p = document.createElement('p');
+            p.textContent = text;
+            outputDiv.appendChild(p);
+        };
+
+        // 1. Calculate Age and Retirement
+        const calculateAge = birthYear => 2019 - birthYear;
+
+        const yearUntilRetirement = ({ year, firstName }) => {
+          const age = calculateAge(year);
+          const retirement = 60 - age;
+
+          if (retirement > 0) {
+            appendOutput(`${firstName} retires in ${retirement} years`);
+          } else {
+            appendOutput(`${firstName} is already retired.`);
+          }
+        };
+
+        yearUntilRetirement({ year: 1987, firstName: 'John' });
+
+
+        // 2. Add Numbers Using Reduce
+        const addNumber = (a, b, c, d, e, f, g) => {
+          const numbers = [a, b, c, d, e, f, g];
+          return numbers.reduce((sum, num) => sum + num, 0);
+        };
+
+        appendOutput(`Sum of numbers: ${addNumber(1, 2, 3, 4, 5, 6, 7)}`);
+
+
+        // 3. Calculate Area of Circle
+        const phi = 3.14;
+        const power = 2;
+
+        const calculateArea = ({ radius, power }) => phi * Math.pow(radius, power);
+
+        let radius = 21;
+        const area21 = calculateArea({ radius, power });
+
+        radius = 7;
+        const area7 = calculateArea({ radius, power });
+
+        appendOutput(`Area with radius 21: ${area21}`);
+        appendOutput(`Area with radius 7: ${area7}`);
+
+
+        // 4. Make Ajax Request with Default Method
+        const makeAjaxRequest = (url, method = 'GET') => {
+          appendOutput(`Requesting ${url} with method ${method}`);
+        };
+
+        makeAjaxRequest('www.google.com');
+    </script>
+    
+</body>
+</html>
